@@ -42,6 +42,7 @@ export default function BasicBoard({ title }) {
         </div>
         <div className="flex justify-center p-4">
           <table>
+            <tbody>
             <tr>
               <td className="border border-black w-7 text-center">{"<"}</td>
               <td className="border border-black w-7 text-center">{"1"}</td>
@@ -49,6 +50,7 @@ export default function BasicBoard({ title }) {
               <td className="border border-black w-7 text-center">{"3"}</td>
               <td className="border border-black w-7 text-center">{">"}</td>
             </tr>
+            </tbody>
           </table>
         </div>
       </div>

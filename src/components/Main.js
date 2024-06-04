@@ -9,6 +9,8 @@ import SelectPage from "../pages/SelectPage/SelectPage";
 import SettingsPage from "../pages/SettingsPage/SettingsPage";
 import StatePage from "../pages/StatePage/StatePage";
 
+import RecommendPage from "../pages/MainPage/components/RecoForecastForm/pages/RecommendPage";
+
 export default function Main() {
   return (
     <main className="grow flex flex-col items-center overflow-y-auto m-1">
@@ -17,6 +19,7 @@ export default function Main() {
         <Route path="/board" element={<BoardPage />} />
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/" element={<MainPage />} />
+        <Route path="/recommend" element={<RecommendPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/select" element={<SelectPage />} />
         <Route path="/settings" element={<SettingsPage />} />

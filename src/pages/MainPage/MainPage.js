@@ -16,8 +16,9 @@ import ValueForm from "./components/ValueForm/ValueForm";
 
 export default function MainPage() {
   return (
+    <>
     <div className="w-full flex flex-col items-center pt-5">
-      <section className="border border-black w-full h-80">
+      <section className="w-full h-80">
         {/* 사진 넘어가면서 뭔 가치를 만드는 어쩌고 그런 문구 / 우리프로그램을 한눈에 가시적으로 / cj 홈페이지 최상단 */}
         <IntroduceForm />
       </section>
@@ -29,11 +30,11 @@ export default function MainPage() {
           <RecoForecastForm />
         </section>
         <section className="border border-black w-1/4">
-          {/* 체험 서비스 신청(비회원, 회원) / 예약 / 예약을 위해서 날짜를 선택하는 드롭다운 달력창 구현(색깔로 간단하게 예악 가/불가 날짜 확인 */}
+          {/* 체험 서비스 신청(비회원, 회원) /예약 / 예약을 위해서 날짜를 선택하는 드롭다운 달력창 구현(색깔로간단하게 예악 가/불가 날짜 확인 */}
           <ExperienceForm />
         </section>
         <section className="border border-black w-1/4">
-          {/* 작물 정보 바로가기? / 농가정보? / 등등 퍼블릭 서비스 구현 (가장 위에) */}
+          {/* 작물 정보 바로가기? / 농가정보? /등등 퍼블릭 서비스 구현 (가장 위에) */}
           <PublicForm />
         </section>
       </section>
@@ -63,8 +64,8 @@ export default function MainPage() {
           </section>
         </section>
       </section>
-      <section className="border border-black w-full flex flex-row h-60 mb-5">
-        <section className="border border-black w-1/2">
+      <section className="w-full flex flex-row h-[285px] mb-5">
+        <section className="w-1/2">
           {/* 달력 */}
           <CalendarForm />
         </section>
@@ -73,10 +74,12 @@ export default function MainPage() {
           <StreamingForm />
         </section>
       </section>
-      <section className="border border-black w-full h-96 mb-5">
+      <section className="w-full h-fit mb-5">
         {/* 풀무원 홈페이지 회사소개 및 가치 참조 */}
         <ValueForm />
       </section>
     </div>
+    </>
+    
   );
 }

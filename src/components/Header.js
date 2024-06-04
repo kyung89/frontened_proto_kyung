@@ -51,7 +51,7 @@ export default function Header() {
         <Link to="/alarm">
           <div className="rounded-md hover:text-white">
             <FaBell />
-            <span class="absolute top-2 right-2 flex items-center justify-center h-4 w-4 rounded-full bg-red-600 text-white text-xs font-bold">
+            <span className="absolute top-2 right-2 flex items-center justify-center h-4 w-4 rounded-full bg-red-600 text-white text-xs font-bold">
               3
             </span>
           </div>
