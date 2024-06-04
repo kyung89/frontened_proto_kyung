@@ -7,7 +7,7 @@ export default function ValueForm() {
     <div className="value-section">
         <div className="value-grid">
             <div className="value-item" id="item1">
-                <div v="overlay">
+                <div className="overlay">
                     <h2>실시간 동영상 스트리밍</h2>
                     <p>스트리밍을 통해 직접 작물을 키우는 느낌을 받을 수 있습니다.</p>
                 </div>
