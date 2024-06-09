@@ -5,6 +5,8 @@ import FaqPage from "./components/FaqPage/FaqPage";
 import NoticePage from "./components/NoticePage/NoticePage";
 import FreeBoardPage from "./components/FreeBoardPage/FreeBoardPage";
 import MarketBoardPage from "./components/MarketBoardPage/MarketBoardPage";
+import BoardBtn from "./components/common/BoardBtn";
+import CommunityPage from "./components/CommunityPage/CommunityPage";
 
 // 게시판 껍데기 구현
 // 세부기능 구현 필요: 상세보기, 글쓰기, 글삭제 등
@@ -20,38 +22,24 @@ export default function BoardPage() {
   return (
     <div className="w-full">
       <div className="mt-5 flex justify-center">
-        <button
-          className="w-40 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-          onClick={() => selectBoard("faq")}
-        >
-          FaQ
-        </button>
-
-        <button
-          className="w-40 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-          onClick={() => selectBoard("qna")}
-        >
-          QnA
-        </button>
-
-        <button
-          className="w-40 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-          onClick={() => selectBoard("notice")}
-        >
-          공지사항
-        </button>
-        <button
-          className="w-40 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-          onClick={() => selectBoard("free")}
-        >
-          자유게시판
-        </button>
-        <button
-          className="w-40 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-          onClick={() => selectBoard("market")}
-        >
-          당근마켓
-        </button>
+        <BoardBtn btnTitle="FaQ" handleClick={() => selectBoard("faq")} />
+        <BoardBtn btnTitle="QnA" handleClick={() => selectBoard("qna")} />
+        <BoardBtn
+          btnTitle="공지사항"
+          handleClick={() => selectBoard("notice")}
+        />
+        <BoardBtn
+          btnTitle="자유게시판"
+          handleClick={() => selectBoard("free")}
+        />
+        <BoardBtn
+          btnTitle="당근마켓"
+          handleClick={() => selectBoard("market")}
+        />
+        <BoardBtn
+          btnTitle="커뮤니티 게시판"
+          handleClick={() => selectBoard("community")}
+        />
       </div>
       <div className="w-full h-full justify-center items-center p-9">
         {board === "faq" && <FaqPage />}
@@ -59,6 +47,7 @@ export default function BoardPage() {
         {board === "notice" && <NoticePage />}
         {board === "free" && <FreeBoardPage />}
         {board === "market" && <MarketBoardPage />}
+        {board === "community" && <CommunityPage />}
       </div>
     </div>
   );

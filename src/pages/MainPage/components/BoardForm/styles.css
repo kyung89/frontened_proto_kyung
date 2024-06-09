@@ -1,0 +1,45 @@
+.container {
+  overflow: hidden;
+  height: 55px; /* 텍스트 영역의 높이 */
+  width: full; /* 필요한 경우 조정 */
+  position: relative;
+}
+
+.text-box {
+  padding: 3px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  animation: moveUp 9s infinite;
+}
+
+.moving-text {
+  height: 50px; /* 텍스트 영역의 높이와 맞춤 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #333;
+}
+
+@keyframes moveUp {
+  0% {
+    top: 0;
+  }
+  33% {
+    top: 0;
+  }
+  36% {
+    top: -50px;
+  }
+  66% {
+    top: -50px;
+  }
+  69% {
+    top: -100px;
+  }
+  100% {
+    top: -100px;
+  }
+}

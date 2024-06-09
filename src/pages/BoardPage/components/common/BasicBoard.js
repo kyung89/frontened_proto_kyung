@@ -10,7 +10,10 @@ export default function BasicBoard({ title }) {
 
   useEffect(() => {
     const trs = sampleData.map((item) => (
-      <tr key={item.no} className="border-b-2 border-black h-10">
+      <tr
+        key={item.no}
+        className="border border-gray-400 h-10 hover:bg-gray-100 rounded-lg"
+      >
         <td className="w-[10%] text-center">{item.no}</td>
         <td className="w-[50%]">{item.subject}</td>
         <td className="w-[10%] text-center">{item.id}</td>
@@ -26,12 +29,12 @@ export default function BasicBoard({ title }) {
     <div className="pt-3">
       <div className="p-5 text-lg font-bold">{title}</div>
       <div>
-        <div className="w-full">
-          <table className="w-full">
+        <div className="w-full p-6 bg-white border border-gray-200 rounded-lg shadow">
+          <table className="w-full rounded-lg shadow border border-gray-400 ">
             <thead>
-              <tr className="border-t-2 border-b-2 border-black w-full">
+              <tr className="w-full bg-gray-400 h-8">
                 <th className="w-[10%]">NO</th>
-                <th className="w-[50%]">SUBJECT</th>
+                <th className="w-[50%]">TITLE</th>
                 <th className="w-[10%]">ID</th>
                 <th className="w-[20%]">DATE</th>
                 <th className="w-[10%]">HIT</th>
@@ -43,13 +46,23 @@ export default function BasicBoard({ title }) {
         <div className="flex justify-center p-4">
           <table>
             <tbody>
-            <tr>
-              <td className="border border-black w-7 text-center">{"<"}</td>
-              <td className="border border-black w-7 text-center">{"1"}</td>
-              <td className="border border-black w-7 text-center">{"2"}</td>
-              <td className="border border-black w-7 text-center">{"3"}</td>
-              <td className="border border-black w-7 text-center">{">"}</td>
-            </tr>
+              <tr>
+                <td className="hover:bg-gray-100 bg-white border border-gray-400 rounded-lg shadow w-7 text-center">
+                  {"<"}
+                </td>
+                <td className="hover:bg-gray-100 bg-white border border-gray-400 rounded-lg shadow w-7 text-center">
+                  {"1"}
+                </td>
+                <td className="hover:bg-gray-100 bg-white border border-gray-400 rounded-lg shadow w-7 text-center">
+                  {"2"}
+                </td>
+                <td className="hover:bg-gray-100 bg-white border border-gray-400 rounded-lg shadow w-7 text-center">
+                  {"3"}
+                </td>
+                <td className="hover:bg-gray-100 bg-white border border-gray-400 rounded-lg shadow w-7 text-center">
+                  {">"}
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>

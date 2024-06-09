@@ -12,7 +12,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="w-full h-full flex flex-col p-5">
+    <div className="w-full h-full flex flex-col p-5 pt-20">
       <div className="flex flex-row justify-between">
         <div className="font-bold text-xl pb-5">기본정보</div>
         <div className="mr-0">

@@ -7,7 +7,7 @@ import { RiPlantFill } from "react-icons/ri";
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center text-sm h-10 p-5 bg-green-900">
+    <header className="flex justify-between items-center text-sm h-10 p-5 bg-[#2E8B57] m-1">
       <Link to="/">
         <div className="flex flex-row justify-center items-center hover:text-white">
           <RiPlantFill />
@@ -31,10 +31,6 @@ export default function Header() {
         <Link to="/state">
           <div className="mx-5 p-2 rounded-md hover:text-white">상태관리</div>
         </Link>
-        {/** 인규님 파트: 05. 커뮤니티 */}
-        <Link to="/login">
-          <div className="mx-5 p-2 rounded-md hover:text-white">커뮤니티</div>
-        </Link>
         <Link to="/profile">
           <div className="mx-5 p-2 rounded-md hover:text-white">
             마이 페이지
@@ -51,9 +47,7 @@ export default function Header() {
         <Link to="/alarm">
           <div className="rounded-md hover:text-white">
             <FaBell />
-            <span className="absolute top-2 right-2 flex items-center justify-center h-4 w-4 rounded-full bg-red-600 text-white text-xs font-bold">
-              3
-            </span>
+            <span className="absolute top-4 right-5 flex items-center justify-center h-2 w-2 rounded-full bg-red-600 text-white text-xs font-bold"></span>
           </div>
         </Link>
       </div>
