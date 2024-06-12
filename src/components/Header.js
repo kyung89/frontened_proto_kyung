@@ -31,7 +31,7 @@ export default function Header() {
         <Link to="/state">
           <div className="mx-5 p-2 rounded-md hover:text-white">상태관리</div>
         </Link>
-        <Link to="/profile">
+        <Link to="/mypage">
           <div className="mx-5 p-2 rounded-md hover:text-white">
             마이 페이지
           </div>

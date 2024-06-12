@@ -4,7 +4,7 @@ import AlarmPage from "../pages/AlarmPage/AlarmPage";
 import BoardPage from "../pages/BoardPage/BoardPage";
 import ExperiencePage from "../pages/ExperiencePage/ExperiencePage";
 import MainPage from "../pages/MainPage/MainPage";
-import ProfilePage from "../pages/ProfilePage/ProfilePage";
+import MyPage from "../pages/MyPage/MyPage";
 import SelectPage from "../pages/SelectPage/SelectPage";
 import SettingsPage from "../pages/SettingsPage/SettingsPage";
 import StatePage from "../pages/StatePage/StatePage";
@@ -20,7 +20,7 @@ export default function Main() {
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/" element={<MainPage />} />
         <Route path="/recommend" element={<RecommendPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/mypage" element={<MyPage />} />
         <Route path="/select" element={<SelectPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/state" element={<StatePage />} />
