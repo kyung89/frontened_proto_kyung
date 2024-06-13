@@ -36,6 +36,28 @@ export default function Header() {
             마이 페이지
           </div>
         </Link>
+
+        {/** 일단 테스트용으로 임시로 넣은 거 */}
+        <Link to="/boarddetail">
+          <div className="mx-5 p-2 rounded-md hover:text-white">
+            상세 글보기
+          </div>
+        </Link>
+
+        {/** 일단 테스트용으로 임시로 넣은 거 */}
+        <Link to="/boardedit">
+          <div className="mx-5 p-2 rounded-md hover:text-white">
+            글 수정
+          </div>
+        </Link>
+
+        {/** 일단 테스트용으로 임시로 넣은 거 */}
+        <Link to="/profile">
+          <div className="mx-5 p-2 rounded-md hover:text-white">
+            프로필: 해둔것
+          </div>
+        </Link>
+
         {/** 인규님 파트: 02. 로그인 */}
         <Link to="/login">
           <div className="mx-5 p-2 rounded-md hover:text-white">로그인</div>

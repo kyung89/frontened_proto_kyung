@@ -11,6 +11,11 @@ import StatePage from "../pages/StatePage/StatePage";
 
 import RecommendPage from "../pages/MainPage/components/RecoForecastForm/pages/RecommendPage";
 
+// 일단 테스트용으로 임시로 넣은 거: 게시판 세부화면 (상세글보기, 글수정화면)
+import EditContent from "../pages/BoardPage/components/common/EditContent";
+import SeeDetail from "../pages/BoardPage/components/common/SeeDetail";
+import ProfilePage from "../pages/MyPage/temp/ProfilePage";
+
 export default function Main() {
   return (
     <main className="grow flex flex-col items-center overflow-y-auto m-1">
@@ -24,6 +29,16 @@ export default function Main() {
         <Route path="/select" element={<SelectPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/state" element={<StatePage />} />
+
+        {/** 일단 테스트용으로 임시로 넣은 거 */}
+        <Route path="/boarddetail" element={<SeeDetail />} />
+
+        {/** 일단 테스트용으로 임시로 넣은 거 */}
+        <Route path="/boardedit" element={<EditContent />} />
+
+        {/** 일단 테스트용으로 임시로 넣은 거 */}
+        <Route path="/profile" element={<ProfilePage />} />
+
       </Routes>
     </main>
   );
