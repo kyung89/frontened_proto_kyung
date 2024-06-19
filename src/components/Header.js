@@ -46,9 +46,7 @@ export default function Header() {
 
         {/** 일단 테스트용으로 임시로 넣은 거 */}
         <Link to="/boardedit">
-          <div className="mx-5 p-2 rounded-md hover:text-white">
-            글 수정
-          </div>
+          <div className="mx-5 p-2 rounded-md hover:text-white">글 수정</div>
         </Link>
 
         {/** 일단 테스트용으로 임시로 넣은 거 */}
@@ -63,7 +61,7 @@ export default function Header() {
           <div className="mx-5 p-2 rounded-md hover:text-white">로그인</div>
         </Link>
         {/** 인규님 파트: 06. 회원가입 */}
-        <Link to="/register">
+        <Link to="/join">
           <div className="mx-5 p-2 rounded-md hover:text-white">회원가입</div>
         </Link>
         <Link to="/alarm">

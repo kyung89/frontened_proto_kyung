@@ -32,7 +32,7 @@ export default function RecoForecastForm() {
     const resp = await fetch(url);
     const data = await resp.json();
 
-    setTdata(data.response.body.items.item);
+    if (data.response.body) setTdata(data.response.body.items.item);
   };
 
   const fetchAddress = async () => {
@@ -43,7 +43,7 @@ export default function RecoForecastForm() {
       const apiKey = process.env.REACT_APP_GOOGLE_GEOCODING_API; // 여기에 발급받은 API 키를 입력하세요.
       const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.coords.latitude},${position.coords.longitude}&key=${apiKey}`;
 
-      console.log(url);
+      //console.log(url);
       try {
         const response = await fetch(url);
         const data = await response.json();
@@ -127,34 +127,45 @@ export default function RecoForecastForm() {
       <div className="mb-1">
         <div>
           <table className="w-full border border-gray-500">
-            <tr className="h-10">
-              <td className="w-36 border border-gray-500 bg-gray-300">
-                &nbsp;이달의 추천작물
-              </td>
-              <td className=" border border-gray-500">
-                <Link to="/recommend">
-                  &nbsp;{month}월의 추천 작물은{" "}
-                  <span className="font-bold text-red-500 underline">샘플</span>
-                </Link>
-              </td>
-            </tr>
+            <tbody>
+              <tr className="h-10">
+                <td className="w-36 border border-gray-500 bg-gray-300">
+                  &nbsp;이달의 추천작물
+                </td>
+                <td className=" border border-gray-500">
+                  <Link to="/recommend">
+                    &nbsp;{month}월의 추천 작물은{" "}
+                    <span className="font-bold text-red-500 underline">
+                      샘플
+                    </span>
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
       <div className="mt-1">
         <table className="w-full border border-gray-500">
-          <tr className="h-10">
-            <td className="w-36 border border-gray-500 bg-gray-300">
-              &nbsp;현재주소
-            </td>
-            <td className=" border border-gray-500">&nbsp;{address}</td>
-          </tr>
-          <tr className="h-10">
-            <td className="w-36 border border-gray-500 bg-gray-300">
-              &nbsp;현재날씨
-            </td>
-            <td className=" border border-gray-500">&nbsp;{weatherMsg}</td>
-          </tr>
+          <tbody>
+            <tr className="h-10">
+              <td className="w-36 border border-gray-500 bg-gray-300">
+                &nbsp;현재주소
+              </td>
+              <td className=" border border-gray-500">&nbsp;{address}</td>
+            </tr>
+            <tr className="h-10">
+              <td className="w-36 border border-gray-500 bg-gray-300">
+                &nbsp;현재날씨
+              </td>
+              <td className=" border border-gray-500">
+                &nbsp;
+                {weatherMsg
+                  ? weatherMsg
+                  : "날씨 정보를 아직 불러오지 못했네요!"}
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

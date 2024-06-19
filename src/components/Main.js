@@ -16,6 +16,9 @@ import EditContent from "../pages/BoardPage/components/common/EditContent";
 import SeeDetail from "../pages/BoardPage/components/common/SeeDetail";
 import ProfilePage from "../pages/MyPage/temp/ProfilePage";
 
+import Login from "../component/Login";
+import Join from "../component/Join";
+
 export default function Main() {
   return (
     <main className="grow flex flex-col items-center overflow-y-auto m-1">
@@ -39,6 +42,9 @@ export default function Main() {
         {/** 일단 테스트용으로 임시로 넣은 거 */}
         <Route path="/profile" element={<ProfilePage />} />
 
+        {/** 인규님 파트 프엔 통합 */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/join" element={<Join />} />
       </Routes>
     </main>
   );
