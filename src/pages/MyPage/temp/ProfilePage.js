@@ -21,124 +21,126 @@ export default function ProfilePage() {
         </div>
       </div>
       <table className="border border-gray-300">
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            아이디
-            <RequiredRed />
-          </td>
-          <td className="border border-gray-300 w-4/5 p-2">아이디 항목</td>
-        </tr>
+        <tbody>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              아이디
+              <RequiredRed />
+            </td>
+            <td className="border border-gray-300 w-4/5 p-2">아이디 항목</td>
+          </tr>
 
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            비밀번호
-            <RequiredRed />
-          </td>
-          <td className="border border-gray-300 w-4/5 p-2">
-            <input className="border border-gray-300" type="password" />
-          </td>
-        </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              비밀번호
+              <RequiredRed />
+            </td>
+            <td className="border border-gray-300 w-4/5 p-2">
+              <input className="border border-gray-300" type="password" />
+            </td>
+          </tr>
 
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            비밀번호 확인
-            <RequiredRed />
-          </td>
-          <td className="border border-gray-300 w-4/5 p-2">
-            <input className="border border-gray-300" type="password" />
-          </td>
-        </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              비밀번호 확인
+              <RequiredRed />
+            </td>
+            <td className="border border-gray-300 w-4/5 p-2">
+              <input className="border border-gray-300" type="password" />
+            </td>
+          </tr>
 
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            비밀번호 확인 질문
-            <RequiredRed />
-          </td>
-          <td className="border border-gray-300 w-4/5 p-2">
-            <input className="border border-gray-300 w-96" type="text" />
-          </td>
-        </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              비밀번호 확인 질문
+              <RequiredRed />
+            </td>
+            <td className="border border-gray-300 w-4/5 p-2">
+              <input className="border border-gray-300 w-96" type="text" />
+            </td>
+          </tr>
 
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            비밀번호 확인 답변
-            <RequiredRed />
-          </td>
-          <td className="border border-gray-300 w-4/5 p-2">
-            <input className="border border-gray-300 w-96" type="text" />
-          </td>
-        </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              비밀번호 확인 답변
+              <RequiredRed />
+            </td>
+            <td className="border border-gray-300 w-4/5 p-2">
+              <input className="border border-gray-300 w-96" type="text" />
+            </td>
+          </tr>
 
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            이름
-            <RequiredRed />
-          </td>
-          <td className="border border-gray-300 w-4/5 p-2">
-            <input className="border border-gray-300" type="text" />
-          </td>
-        </tr>
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              이름
+              <RequiredRed />
+            </td>
+            <td className="border border-gray-300 w-4/5 p-2">
+              <input className="border border-gray-300" type="text" />
+            </td>
+          </tr>
 
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            주소
-            <RequiredRed />
-          </td>
-          <td className="w-full p-2 flex flex-col">
-            <div className="pb-2">
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              주소
+              <RequiredRed />
+            </td>
+            <td className="w-full p-2 flex flex-col">
+              <div className="pb-2">
+                <input className="border border-gray-300 w-16" type="text" />
+                &nbsp;&nbsp;
+                <button className="text-white bg-gray-500 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm p-1">
+                  우편번호
+                </button>
+              </div>
+              <div className="pb-2">
+                <input className="border border-gray-300 w-96" type="text" />
+                &nbsp;<span className="text-sm text-gray-400">기본주소</span>
+              </div>
+              <div className="pb-2">
+                <input className="border border-gray-300 w-96" type="text" />
+                &nbsp;<span className="text-sm text-gray-400">나머지주소</span>
+              </div>
+            </td>
+          </tr>
+
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              일반전화
+            </td>
+            <td className="border border-gray-300 w-4/5 p-2">
               <input className="border border-gray-300 w-16" type="text" />
-              &nbsp;&nbsp;
-              <button className="text-white bg-gray-500 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm p-1">
-                우편번호
-              </button>
-            </div>
-            <div className="pb-2">
+              &nbsp;-&nbsp;
+              <input className="border border-gray-300 w-16" type="text" />
+              &nbsp;-&nbsp;
+              <input className="border border-gray-300 w-16" type="text" />
+            </td>
+          </tr>
+
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              휴대전화
+              <RequiredRed />
+            </td>
+            <td className="border border-gray-300 w-4/5 p-2">
+              <input className="border border-gray-300 w-16" type="text" />
+              &nbsp;-&nbsp;
+              <input className="border border-gray-300 w-16" type="text" />
+              &nbsp;-&nbsp;
+              <input className="border border-gray-300 w-16" type="text" />
+            </td>
+          </tr>
+
+          <tr className="border border-gray-300">
+            <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
+              이메일
+              <RequiredRed />
+            </td>
+            <td className="border border-gray-300 w-4/5 p-2">
               <input className="border border-gray-300 w-96" type="text" />
-              &nbsp;<span className="text-sm text-gray-400">기본주소</span>
-            </div>
-            <div className="pb-2">
-              <input className="border border-gray-300 w-96" type="text" />
-              &nbsp;<span className="text-sm text-gray-400">나머지주소</span>
-            </div>
-          </td>
-        </tr>
-
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            일반전화
-          </td>
-          <td className="border border-gray-300 w-4/5 p-2">
-            <input className="border border-gray-300 w-16" type="text" />
-            &nbsp;-&nbsp;
-            <input className="border border-gray-300 w-16" type="text" />
-            &nbsp;-&nbsp;
-            <input className="border border-gray-300 w-16" type="text" />
-          </td>
-        </tr>
-
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            휴대전화
-            <RequiredRed />
-          </td>
-          <td className="border border-gray-300 w-4/5 p-2">
-            <input className="border border-gray-300 w-16" type="text" />
-            &nbsp;-&nbsp;
-            <input className="border border-gray-300 w-16" type="text" />
-            &nbsp;-&nbsp;
-            <input className="border border-gray-300 w-16" type="text" />
-          </td>
-        </tr>
-
-        <tr className="border border-gray-300">
-          <td className="border border-gray-300 bg-slate-200 w-1/5 p-2">
-            이메일
-            <RequiredRed />
-          </td>
-          <td className="border border-gray-300 w-4/5 p-2">
-            <input className="border border-gray-300 w-96" type="text" />
-          </td>
-        </tr>
+            </td>
+          </tr>
+        </tbody>
       </table>
 
       <div className="flex flex-row justify-between mx-auto">
