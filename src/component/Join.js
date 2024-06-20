@@ -31,9 +31,11 @@ export default function Join() {
       // 클라이언트에서 서버로 사용자 이름 중복 체크 요청 보내기
       let urls = `http://localhost:8080/login/doubleCheck?username=${username}`;
       const response = await axios.post(urls);
+
       console.log(urls);
       console.log("로그확인");
       console.log(response.status);
+
       if (response.status === 200) {
         setUsernameExists(false);
         setUsernameCheckMessage("사용 가능한 아이디입니다.");
@@ -47,7 +49,7 @@ export default function Join() {
         setUsernameCheckMessage("이미 사용중인 아이디입니다.");
       } else {
         console.error("Error checking username:", error);
-        setUsernameCheckMessage("아이디 중복검사를 시행세요.");
+        setUsernameCheckMessage("아이디 중복검사를 시행하세요.");
       }
     }
   };
