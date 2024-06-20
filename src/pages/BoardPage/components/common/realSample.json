@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "게시글 제목 1",
+    "content": "게시글 내용 1",
+    "createdBy": "twobeercat",
+    "viewCount": 0,
+    "category": "커뮤니티",
+    "postDate": "2024-06-20T09:35:24.556+00:00",
+    "updateDate": "2024-06-20T09:35:24.556+00:00"
+  },
+  {
+    "id": 2,
+    "title": "게시글 제목 2",
+    "content": "게시글 내용 2",
+    "createdBy": "twobeercat",
+    "viewCount": 0,
+    "category": "커뮤니티",
+    "postDate": "2024-06-20T09:36:34.701+00:00",
+    "updateDate": "2024-06-20T09:36:34.701+00:00"
+  },
+  {
+    "id": 3,
+    "title": "게시글 제목 3",
+    "content": "게시글 내용 3",
+    "createdBy": "twobeercat",
+    "viewCount": 0,
+    "category": "커뮤니티",
+    "postDate": "2024-06-20T09:37:19.612+00:00",
+    "updateDate": "2024-06-20T09:37:19.612+00:00"
+  }
+]

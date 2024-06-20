@@ -1,29 +1,61 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import sampleData from "./sample.json";
+//import sampleData from "./realSample.json";
+import { useNavigate } from "react-router-dom";
 
 // 기본 게시판
 // 백엔드와 연동할 것을 고려해서 잘 짜야함!
 
-export default function BasicBoard({ title }) {
+// 기본 posts JSON 구조
+// {"id":1,
+//  "title":"게시글 제목 1",
+//  "content":"게시글 내용 1",
+//  "createdBy":"twobeercat",
+//  "viewCount":0,
+//  "category":"커뮤니티",
+//  "postDate":"2024-06-20T09:35:24.556+00:00",
+//  "updateDate":"2024-06-20T09:35:24.556+00:00"
+//  }
+
+// 일단 화면 표시에 성공하고 순서 뒤집기
+
+export default function BasicBoard({ title, posts }) {
   const [trs, setTrs] = useState([]);
+  const navigator = useNavigate();
+
+  // 게시글 상세보기로 이동하는 함수
+  const seePostDetail = (postId) => {
+    navigator(`/boarddetail?postid=${postId}`);
+  };
 
   useEffect(() => {
-    const trs = sampleData.map((item) => (
+    if (posts === null || posts === undefined) return;
+
+    const trs = posts.reverse().map((item) => (
       <tr
-        key={item.no}
-        className="border border-gray-400 h-10 hover:bg-gray-100 rounded-lg"
+        key={item.id}
+        className="border border-gray-400 h-10 hover:bg-gray-100 rounded-lg cursor-pointer"
+        onClick={() => seePostDetail(item.id)}
       >
-        <td className="w-[10%] text-center">{item.no}</td>
-        <td className="w-[50%]">{item.subject}</td>
-        <td className="w-[10%] text-center">{item.id}</td>
-        <td className="w-[20%] text-center">{item.date}</td>
-        <td className="w-[10%] text-center">{item.hit}</td>
+        <td className="border border-gray-200 w-[7%] text-center">{item.id}</td>
+        <td className="border border-gray-200 w-[41%]">&nbsp;{item.title}</td>
+        <td className="border border-gray-200 w-[15%] text-center">
+          {item.createdBy}
+        </td>
+        <td className="border border-gray-200 w-[15%] text-center">
+          {item.postDate.substring(0, 10)}
+        </td>
+        <td className="border border-gray-200 w-[15%] text-center">
+          {item.updateDate.substring(0, 10)}
+        </td>
+        <td className="border border-gray-200 w-[7%] text-center">
+          {item.viewCount}
+        </td>
       </tr>
     ));
 
     setTrs(trs);
-  }, []);
+  }, [posts]);
 
   return (
     <div className="pt-3">
@@ -33,16 +65,19 @@ export default function BasicBoard({ title }) {
           <table className="w-full rounded-lg shadow border border-gray-400 ">
             <thead>
               <tr className="w-full bg-gray-400 h-8">
-                <th className="w-[10%]">NO</th>
-                <th className="w-[50%]">TITLE</th>
-                <th className="w-[10%]">ID</th>
-                <th className="w-[20%]">DATE</th>
-                <th className="w-[10%]">HIT</th>
+                <th className="w-[7%] text-xs">글번호</th>
+                <th className="w-[41%] text-xs">제목</th>
+                <th className="w-[15%] text-xs">작성자</th>
+                <th className="w-[15%] text-xs">작성일</th>
+                <th className="w-[15%] text-xs">수정일</th>
+                <th className="w-[7%] text-xs">조회수</th>
               </tr>
             </thead>
             <tbody>{trs}</tbody>
           </table>
         </div>
+        {/** pagination 은 추후 구현할 것 */}
+        {/**
         <div className="flex justify-center p-4">
           <table>
             <tbody>
@@ -66,6 +101,7 @@ export default function BasicBoard({ title }) {
             </tbody>
           </table>
         </div>
+        */}
       </div>
     </div>
   );
