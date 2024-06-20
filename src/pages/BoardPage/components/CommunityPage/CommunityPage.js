@@ -32,5 +32,15 @@ export default function CommunityPage() {
         // 항상 실행되는 영역
       });
   }, []);
-  return <>{posts && <BasicBoard title={"커뮤니티 게시판"} posts={posts} />}</>;
+  return (
+    <>
+      {posts && (
+        <BasicBoard
+          category={"community"}
+          title={"커뮤니티 게시판"}
+          posts={posts}
+        />
+      )}
+    </>
+  );
 }

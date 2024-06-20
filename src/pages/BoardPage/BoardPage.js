@@ -21,15 +21,13 @@ export default function BoardPage() {
   const [sParams] = useSearchParams();
   const category = sParams.get("category");
 
-  console.log(category);
+  //console.log("category: ", category);
+  //if (category !== "null") console.log("category is string null");
+  //if (category !== null) console.log("category is null");
 
-  const [board, setBoard] = useState("community");
-  // 일단 이 문제는 나중에 해결
-
-  // useEffect(() => {
-  //   if (category !== "null") setBoard(category);
-  //   if (category !== null) setBoard(category);
-  // }, []);
+  const [board, setBoard] = useState(
+    category !== null && category !== "null" ? category : "faq"
+  );
 
   const selectBoard = (boardType) => {
     setBoard(boardType);

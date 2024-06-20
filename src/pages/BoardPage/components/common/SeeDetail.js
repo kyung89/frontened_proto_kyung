@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import CommentInput from "./item/CommentInput";
-import Comment from "./item/Comment";
+
 import { useSearchParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import CommentList from "./item/CommentList";
 
 // 삭제, 수정 버튼은 로그인한 사용자가 글 작성자와 일치하는 경우만 보여준다. 아니면 disabled 하던지
 
 // 일단 기본적인 상세 글보기: 나중에 잘 나눠서 정리해야함. 로직 꼬이는 것 방지하고 유지보수 생각
+
+// 게시판 일단 보이는 기능을 구현하되 postId 정보를 recoil 로 관리하는게 나을수도 있다.
+
 export default function SeeDetail() {
   const [sParams] = useSearchParams();
   const postId = sParams.get("postid");
+  const no = sParams.get("no");
   const [post, setPost] = useState(null);
   const [catgoryHangul, setCatgoryHangul] = useState(null);
 
@@ -67,7 +72,7 @@ export default function SeeDetail() {
   const handleEditPostBtn = () => {
     if (alertNotWriter()) {
       // postId 사용
-      navigator(`/boardedit?postid=${postId}`);
+      navigator(`/boardedit?postid=${postId}&no=${no}`);
     }
   };
 
@@ -113,7 +118,7 @@ export default function SeeDetail() {
               <li className="w-20 bg-slate-200 mr-2 text-xs">
                 <span className="font-bold text-blue-800">글번호:</span>
                 &nbsp;&nbsp;
-                {post.id}
+                {no}
               </li>
               <li className="bg-slate-200 mr-2 flex-grow text-xs">
                 <span className="font-bold text-blue-800">제목:</span>
@@ -170,13 +175,7 @@ export default function SeeDetail() {
           <div className="w-full min-h-56 p-6 m-2 bg-white border border-gray-200 rounded-lg shadow">
             <CommentInput />
             <div className="grow">
-              <Comment />
-              <Comment />
-              <Comment />
-              <Comment />
-              <Comment />
-              <Comment />
-              <Comment />
+              <CommentList postId={postId} />
             </div>
           </div>
           <div className="h-5"></div>

@@ -19,25 +19,32 @@ import { useNavigate } from "react-router-dom";
 
 // 일단 화면 표시에 성공하고 순서 뒤집기
 
-export default function BasicBoard({ title, posts }) {
+export default function BasicBoard({ category, title, posts }) {
   const [trs, setTrs] = useState([]);
   const navigator = useNavigate();
 
   // 게시글 상세보기로 이동하는 함수
-  const seePostDetail = (postId) => {
-    navigator(`/boarddetail?postid=${postId}`);
+  const seePostDetail = (postId, no) => {
+    navigator(`/boarddetail?postid=${postId}&no=${no}`);
   };
 
   useEffect(() => {
     if (posts === null || posts === undefined) return;
 
-    const trs = posts.reverse().map((item) => (
+    let no = 1;
+    const numberedPosts = posts
+      //.reverse()
+      .filter((post) => post.category === category)
+      .map((post) => ({ ...post, no: no++ }))
+      .reverse();
+
+    const trs = numberedPosts.map((item) => (
       <tr
         key={item.id}
         className="border border-gray-400 h-10 hover:bg-gray-100 rounded-lg cursor-pointer"
-        onClick={() => seePostDetail(item.id)}
+        onClick={() => seePostDetail(item.id, item.no)}
       >
-        <td className="border border-gray-200 w-[7%] text-center">{item.id}</td>
+        <td className="border border-gray-200 w-[7%] text-center">{item.no}</td>
         <td className="border border-gray-200 w-[41%]">&nbsp;{item.title}</td>
         <td className="border border-gray-200 w-[15%] text-center">
           {item.createdBy}

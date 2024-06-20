@@ -12,6 +12,7 @@ import axios from "axios";
 export default function EditContent() {
   const [sParams] = useSearchParams();
   const postId = sParams.get("postid");
+  const no = sParams.get("no");
   const [post, setPost] = useState(null);
 
   const [title, setTitle] = useState("");
@@ -58,7 +59,6 @@ export default function EditContent() {
         {
           title,
           content,
-          update_date: new Date(),
         },
         {
           headers: {
@@ -87,7 +87,7 @@ export default function EditContent() {
               <li className="w-20 bg-slate-200 mr-2 text-xs">
                 <span className="font-bold text-blue-800">글번호:</span>
                 &nbsp;&nbsp;
-                {post.id}
+                {no}
               </li>
               <li className="bg-slate-200 mr-2 flex-grow text-xs">
                 <span className="font-bold text-blue-800">제목:</span>
