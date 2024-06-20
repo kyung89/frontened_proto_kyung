@@ -14,6 +14,9 @@ import { isLogin, userDataState } from "./StAtom";
 // 로그인 사용자 데이터를 한곳에서 관리할지는 추후 생각해보자
 // Recoil로 관리할 값과 localStorage에서 관리할 값을 구분하자
 
+// 01. 회원정보관리: username 보다 userid 가 나았을지도. 기존에 name 이 있어 헷갈림[일단둔다]
+// 02. 로그인창에도 username 보다 user ID 가 나을 것 같다[일단둔다]
+
 export default function Login() {
   const [isLoginCheck, setIsLoginCheck] = useRecoilState(isLogin); // Recoil을 이용한 로그인 상태 관리
   const [userData, setUserData] = useRecoilState(userDataState); // Recoil을 이용한 사용자 정보 관리

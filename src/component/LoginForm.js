@@ -65,6 +65,10 @@ export default function LoginForm({ handleLogin }) {
     }
   };
 
+  const preparingAlert = () => {
+    alert("아직 준비중인 서비스입니다.");
+  };
+
   return (
     <div className="w-11/12 max-w-lg px-10 py-8 mx-auto bg-white border rounded-lg shadow-2xl">
       <div className="max-w-sm mx-auto space-y-4">
@@ -118,7 +122,10 @@ export default function LoginForm({ handleLogin }) {
           <p> -others- </p>
         </div>
         <div className="flex items-center justify-center h-12 dark:bg-gray-800 m-2">
-          <button className="items-center justify-center w-72 px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 bg-naver-green">
+          <button
+            onClick={preparingAlert}
+            className="items-center justify-center w-72 px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 bg-naver-green"
+          >
             <img
               className="w-6 h-6"
               src={naverLogin}
@@ -131,7 +138,10 @@ export default function LoginForm({ handleLogin }) {
           </button>
         </div>
         <div className="flex items-center justify-center h-12 dark:bg-gray-800 m-2">
-          <button className="items-center justify-center w-72 px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 bg-kakao-yellow">
+          <button
+            onClick={preparingAlert}
+            className="items-center justify-center w-72 px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 bg-kakao-yellow"
+          >
             <img
               className="w-6 h-6"
               src={kakaoLogin}
@@ -142,7 +152,10 @@ export default function LoginForm({ handleLogin }) {
           </button>
         </div>
         <div className="flex items-center justify-center h-12 dark:bg-gray-800 m-2">
-          <button className="flex items-center w-72 px-4 py-2 border gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150">
+          <button
+            onClick={preparingAlert}
+            className="flex items-center w-72 px-4 py-2 border gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
+          >
             <img
               className="w-6 h-6"
               src="https://www.svgrepo.com/show/475656/google-color.svg"

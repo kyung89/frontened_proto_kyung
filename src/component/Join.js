@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import { isLogin, userDataState } from "./StAtom";
+
+// [회원가입 개선]
+// 01. 회원가입 시 진행된 단계에서 다시 회원가입 페이지로 올때 단계가 초기화가 되지 않음: 사용자 경험
+// 02. 회원가입 시 NEXT 말고 BACK 버튼도 필요함: 사용자 경험[이건 나중에]
+// 03. 비밀번호를 잊어버렸을 경우의 처리 필요
 
 export default function Join() {
+  const [isLoginCheck, setIsLoginCheck] = useRecoilState(isLogin); // Recoil을 이용한 로그인 상태 관리
+  const [userData, setUserData] = useRecoilState(userDataState); // Recoil을 이용한 사용자 정보 관리
+
   // Step 1: 사용자 이름과 비밀번호 입력
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -64,6 +74,7 @@ export default function Join() {
     const file = e.target.files[0];
     setProfileImg(file);
   };
+
   // 전체 회원 가입 폼 제출 핸들러
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -108,6 +119,19 @@ export default function Join() {
       );
 
       console.log("Registration successful:", response.data);
+
+      const token = localStorage.getItem("token");
+      if (token) {
+        // 새로 회원가입의 경우 로그인 사용자가 있을 때 로그아웃 상태로 만든다.
+
+        // 로컬 스토리지의 데이터 삭제
+        localStorage.removeItem("userData");
+        localStorage.removeItem("token");
+        // Recoil 관리 데이터 삭제
+        setIsLoginCheck(false);
+        setUserData(null);
+      }
+
       setStep(4);
     } catch (error) {
       if (error.response) {
