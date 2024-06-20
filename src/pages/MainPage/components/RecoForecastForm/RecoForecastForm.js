@@ -158,11 +158,18 @@ export default function RecoForecastForm() {
               <td className="w-36 border border-gray-500 bg-gray-300">
                 &nbsp;현재날씨
               </td>
-              <td className=" border border-gray-500">
+              <td className="flex">
                 &nbsp;
                 {weatherMsg
                   ? weatherMsg
                   : "날씨 정보를 아직 불러오지 못했네요!"}
+                {weatherMsg && (
+                  <img
+                    alt={weatherMsg}
+                    className="h-9 w-9"
+                    src={`/image/weather/${weatherMsg}.png`}
+                  />
+                )}
               </td>
             </tr>
           </tbody>
