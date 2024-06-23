@@ -44,6 +44,7 @@ export default function BasicBoard({ category, title, posts }) {
   const [trs, setTrs] = useState([]);
   const navigator = useNavigate();
   const [maxNo, setMaxNo] = useState(1);
+  const [login, setLogin] = useState(false);
 
   // 게시글 상세보기로 이동하는 함수
   const seePostDetail = (postId, no) => {
@@ -89,6 +90,9 @@ export default function BasicBoard({ category, title, posts }) {
 
     setTrs(trs);
     setMaxNo(no);
+
+    const userData1 = JSON.parse(localStorage.getItem("userData"));
+    if (userData1) setLogin(true);
   }, [posts]);
 
   const gotoNewPost = async () => {
@@ -142,7 +146,7 @@ export default function BasicBoard({ category, title, posts }) {
         */}
       </div>
       <div className="flex justify-end m-6">
-        <BoardBtn btnTitle={"글쓰기"} handleClick={gotoNewPost} />
+        {login && <BoardBtn btnTitle={"글쓰기"} handleClick={gotoNewPost} />}
       </div>
     </div>
   );

@@ -56,37 +56,55 @@ export default function Header() {
         <Link to="/board">
           <div className="mx-5 p-2 rounded-md hover:text-white">게시판</div>
         </Link>
-        <Link to="/experience">
-          <div className="mx-5 p-2 rounded-md hover:text-white">체험서비스</div>
-        </Link>
-        <Link to="/select">
-          <div className="mx-5 p-2 rounded-md hover:text-white">작물선택</div>
-        </Link>
-        <Link to="/settings">
-          <div className="mx-5 p-2 rounded-md hover:text-white">설정</div>
-        </Link>
-        <Link to="/state">
-          <div className="mx-5 p-2 rounded-md hover:text-white">상태관리</div>
-        </Link>
-        <Link to="/album">
-          <div className="mx-5 p-2 rounded-md hover:text-white">앨범</div>
-        </Link>
-        <Link to="/mypage">
-          <div className="mx-5 p-2 rounded-md hover:text-white">
-            마이 페이지
-          </div>
-        </Link>
+        {login && (
+          <Link to="/experience">
+            <div className="mx-5 p-2 rounded-md hover:text-white">
+              체험서비스
+            </div>
+          </Link>
+        )}
+        {login && (
+          <Link to="/select">
+            <div className="mx-5 p-2 rounded-md hover:text-white">작물선택</div>
+          </Link>
+        )}
+        {login && (
+          <Link to="/settings">
+            <div className="mx-5 p-2 rounded-md hover:text-white">설정</div>
+          </Link>
+        )}
+        {login && (
+          <Link to="/state">
+            <div className="mx-5 p-2 rounded-md hover:text-white">상태관리</div>
+          </Link>
+        )}
+        {login && (
+          <Link to="/album">
+            <div className="mx-5 p-2 rounded-md hover:text-white">앨범</div>
+          </Link>
+        )}
+        {login && (
+          <Link to="/mypage">
+            <div className="mx-5 p-2 rounded-md hover:text-white">
+              마이 페이지
+            </div>
+          </Link>
+        )}
 
-        <Link to="/profile">
-          <div className="mx-5 p-2 rounded-md hover:text-white">프로필</div>
-        </Link>
+        {login && (
+          <Link to="/profile">
+            <div className="mx-5 p-2 rounded-md hover:text-white">프로필</div>
+          </Link>
+        )}
 
-        <Link to="/alarm">
-          <div className="mx-5 p-2 rounded-md hover:text-white mr-6">
-            알람
-            {/**<FaBell />*/}
-          </div>
-        </Link>
+        {login && (
+          <Link to="/alarm">
+            <div className="mx-5 p-2 rounded-md hover:text-white mr-6">
+              알람
+              {/**<FaBell />*/}
+            </div>
+          </Link>
+        )}
 
         <Link to="/join">
           <div className="mx-5 p-2 rounded-md hover:text-white">회원가입</div>

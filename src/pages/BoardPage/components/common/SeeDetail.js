@@ -18,6 +18,8 @@ export default function SeeDetail() {
   const category = sParams.get("category");
   const [post, setPost] = useState(null);
   const navigator = useNavigate();
+  const [login, setLogin] = useState(false);
+  const [countComment, setCountComment] = useState(0);
 
   useEffect(() => {
     axios
@@ -27,6 +29,25 @@ export default function SeeDetail() {
         setPost(response.data);
 
         //console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        // 에러 핸들링
+        console.log(error);
+      })
+      .finally(function () {
+        // 항상 실행되는 영역
+      });
+
+    const userData1 = JSON.parse(localStorage.getItem("userData"));
+    if (userData1) setLogin(true);
+
+    //댓글 개수 가져오기
+    axios
+      .get(`http://localhost:8080/comments/post/${postId}`)
+      .then(function (response) {
+        // 성공 핸들링
+        setCountComment(response.data.length);
+        console.log("count", response.data.length);
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -130,19 +151,23 @@ export default function SeeDetail() {
           </div>
           <div className="flex items-center justify-center w-full h-20 p-6 m-2 bg-white border border-gray-200 rounded-lg shadow">
             {/** 나중에 버튼 component 는 따로 분리 */}
-            <button
-              onClick={handleEditPostBtn}
-              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
-            >
-              Edit Post
-            </button>
+            {login && (
+              <button
+                onClick={handleEditPostBtn}
+                className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
+              >
+                Edit Post
+              </button>
+            )}
             &nbsp;&nbsp;&nbsp; {/** 나중에 수정!!! */}
-            <button
-              onClick={handleDeleteBtn}
-              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
-            >
-              Delete Post
-            </button>
+            {login && (
+              <button
+                onClick={handleDeleteBtn}
+                className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
+              >
+                Delete Post
+              </button>
+            )}
             &nbsp;&nbsp;&nbsp; {/** 나중에 수정!!! */}
             <button
               onClick={handleBackToPostsBtn}
@@ -152,12 +177,14 @@ export default function SeeDetail() {
             </button>
           </div>
 
-          <div className="w-full min-h-56 p-6 m-2 bg-white border border-gray-200 rounded-lg shadow">
-            <CommentInput postId={postId} />
-            <div className="grow">
-              <CommentList postId={postId} />
+          {countComment > 0 && !login && (
+            <div className="w-full min-h-56 p-6 m-2 bg-white border border-gray-200 rounded-lg shadow">
+              {login && <CommentInput postId={postId} />}
+              <div className="grow">
+                <CommentList postId={postId} />
+              </div>
             </div>
-          </div>
+          )}
           <div className="h-5"></div>
         </>
       )}
