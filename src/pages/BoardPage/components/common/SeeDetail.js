@@ -15,29 +15,9 @@ export default function SeeDetail() {
   const [sParams] = useSearchParams();
   const postId = sParams.get("postid");
   const no = sParams.get("no");
+  const category = sParams.get("category");
   const [post, setPost] = useState(null);
-  const [catgoryHangul, setCatgoryHangul] = useState(null);
-
   const navigator = useNavigate();
-
-  const getCategoryName = (category) => {
-    switch (category) {
-      case "faq":
-        return "FaQ 게시판";
-      case "qna":
-        return "QnA 게시판";
-      case "notice":
-        return "공지사항 게시판";
-      case "free":
-        return "자유 게시판";
-      case "market":
-        return "당근마켓 게시판";
-      case "communtiy":
-        return "커뮤니티 게시판";
-      default:
-        return "";
-    }
-  };
 
   useEffect(() => {
     axios
@@ -45,7 +25,7 @@ export default function SeeDetail() {
       .then(function (response) {
         // 성공 핸들링
         setPost(response.data);
-        setCatgoryHangul(getCategoryName(response.data.category));
+
         //console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
@@ -72,7 +52,7 @@ export default function SeeDetail() {
   const handleEditPostBtn = () => {
     if (alertNotWriter()) {
       // postId 사용
-      navigator(`/boardedit?postid=${postId}&no=${no}`);
+      navigator(`/boardedit?postid=${postId}&no=${no}&category=${category}`);
     }
   };
 
@@ -112,7 +92,7 @@ export default function SeeDetail() {
     <div className="grow w-full h-full p-6 bg-white">
       {post && (
         <>
-          <div className="ml-2">{catgoryHangul}</div>
+          <div className="ml-2">{category}</div>
           <div className="w-full pl-6 p-3 m-2 bg-white border border-gray-200 rounded-lg shadow">
             <ul className="flex flex-row justify-center items-center">
               <li className="w-20 bg-slate-200 mr-2 text-xs">

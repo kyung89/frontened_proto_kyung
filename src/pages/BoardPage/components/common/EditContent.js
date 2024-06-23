@@ -13,6 +13,8 @@ export default function EditContent() {
   const [sParams] = useSearchParams();
   const postId = sParams.get("postid");
   const no = sParams.get("no");
+  const category = sParams.get("category");
+
   const [post, setPost] = useState(null);
 
   const [title, setTitle] = useState("");
@@ -74,12 +76,12 @@ export default function EditContent() {
 
   // 글 목록으로 돌아가기: 커뮤니티 글이면 커뮤니티 게시판으로
   const handleBackToPostsBtn = () => {
-    navigator(`/board?type=${post.category}`);
+    navigator(`/board?category=${post.category}`);
   };
 
   return (
     <div className="grow w-full h-full p-6 bg-white">
-      <div className="ml-2">커뮤니티 게시판</div>
+      <div className="ml-2">{category}</div>
       {post && (
         <>
           <div className="w-full pl-6 p-3 m-2 bg-white border border-gray-200 rounded-lg shadow">

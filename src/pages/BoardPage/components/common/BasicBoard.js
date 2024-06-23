@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 //import sampleData from "./realSample.json";
 import { useNavigate } from "react-router-dom";
+import BoardBtn from "./BoardBtn";
+import axios from "axios";
 
 // 기본 게시판
 // 백엔드와 연동할 것을 고려해서 잘 짜야함!
@@ -19,13 +21,37 @@ import { useNavigate } from "react-router-dom";
 
 // 일단 화면 표시에 성공하고 순서 뒤집기
 
+const getCategoryName = (category) => {
+  switch (category) {
+    case "faq":
+      return "FaQ 게시판";
+    case "qna":
+      return "QnA 게시판";
+    case "notice":
+      return "공지사항 게시판";
+    case "free":
+      return "자유 게시판";
+    case "market":
+      return "당근마켓 게시판";
+    case "communtiy":
+      return "커뮤니티 게시판";
+    default:
+      return "";
+  }
+};
+
 export default function BasicBoard({ category, title, posts }) {
   const [trs, setTrs] = useState([]);
   const navigator = useNavigate();
+  const [maxNo, setMaxNo] = useState(1);
 
   // 게시글 상세보기로 이동하는 함수
   const seePostDetail = (postId, no) => {
-    navigator(`/boarddetail?postid=${postId}&no=${no}`);
+    navigator(
+      `/boarddetail?postid=${postId}&no=${no}&category=${category}&ct=${getCategoryName(
+        category
+      )}`
+    );
   };
 
   useEffect(() => {
@@ -62,7 +88,12 @@ export default function BasicBoard({ category, title, posts }) {
     ));
 
     setTrs(trs);
+    setMaxNo(no);
   }, [posts]);
+
+  const gotoNewPost = async () => {
+    navigator(`/boardwrite?category=${category}&no=${maxNo}`);
+  };
 
   return (
     <div className="pt-3">
@@ -109,6 +140,9 @@ export default function BasicBoard({ category, title, posts }) {
           </table>
         </div>
         */}
+      </div>
+      <div className="flex justify-end m-6">
+        <BoardBtn btnTitle={"글쓰기"} handleClick={gotoNewPost} />
       </div>
     </div>
   );

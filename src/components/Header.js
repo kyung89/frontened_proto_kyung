@@ -1,11 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBell } from "react-icons/fa";
 import { RiPlantFill } from "react-icons/ri";
+import { useRecoilState } from "recoil";
+import { isLogin, userDataState } from "../component/StAtom.js";
 
 // 설계안 필요
 
 export default function Header() {
+  const [isLoginCheck, setIsLoginCheck] = useRecoilState(isLogin); // Recoil을 이용한 로그인 상태 관리
+  const [userData, setUserData] = useRecoilState(userDataState);
+
+  const [login, setLogin] = useState(false);
+
+  const navigator = useNavigate();
+
+  //"./image/blankProfile.png"
+  const [profileImg, setProfileImg] = useState("./image/blankProfile.png");
+
+  useEffect(() => {
+    const userData1 = JSON.parse(localStorage.getItem("userData"));
+
+    if (userData1) {
+      setLogin(true);
+      const base64String = `data:image/jpeg;base64,${userData1.profileImage}`;
+      setProfileImg(base64String);
+    } else {
+      setProfileImg("./image/blankProfile.png");
+    }
+  }, [isLoginCheck]);
+
+  const handleLogout = () => {
+    // 로컬 스토리지의 데이터 삭제
+    localStorage.removeItem("userData");
+    localStorage.removeItem("token");
+
+    // Recoil 관리 데이터 삭제
+    setIsLoginCheck(false);
+    setUserData(null);
+
+    setLogin(false);
+
+    navigator("/login");
+  };
+
   return (
     <header className="flex justify-between items-center text-sm h-10 p-5 bg-[#2E8B57] m-1">
       <Link to="/">
@@ -21,7 +59,6 @@ export default function Header() {
         <Link to="/experience">
           <div className="mx-5 p-2 rounded-md hover:text-white">체험서비스</div>
         </Link>
-
         <Link to="/select">
           <div className="mx-5 p-2 rounded-md hover:text-white">작물선택</div>
         </Link>
@@ -40,28 +77,48 @@ export default function Header() {
           </div>
         </Link>
 
-        {/** 일단 테스트용으로 임시로 넣은 거 */}
         <Link to="/profile">
-          <div className="mx-5 p-2 rounded-md hover:text-white">
-            프로필: 해둔것
+          <div className="mx-5 p-2 rounded-md hover:text-white">프로필</div>
+        </Link>
+
+        <Link to="/alarm">
+          <div className="mx-5 p-2 rounded-md hover:text-white mr-6">
+            알람
+            {/**<FaBell />*/}
           </div>
         </Link>
 
-        {/** 인규님 파트: 02. 로그인 */}
-        <Link to="/login">
-          <div className="mx-5 p-2 rounded-md hover:text-white">로그인</div>
-        </Link>
-        {/** 인규님 파트: 06. 회원가입 */}
         <Link to="/join">
           <div className="mx-5 p-2 rounded-md hover:text-white">회원가입</div>
         </Link>
-        <Link to="/alarm">
-          <div className="rounded-md hover:text-white">
-            <FaBell />
-            <span className="absolute top-4 right-5 flex items-center justify-center h-2 w-2 rounded-full bg-red-600 text-white text-xs font-bold"></span>
+
+        {!login && (
+          <Link to="/login">
+            <div className="mx-5 p-2 rounded-md hover:text-white">로그인</div>
+          </Link>
+        )}
+
+        {login && (
+          <div
+            className="mx-5 p-2 rounded-md hover:text-white"
+            onClick={handleLogout}
+          >
+            로그아웃
           </div>
-        </Link>
+        )}
+
+        {login && (
+          <Link to="/profile">
+            <img
+              alt="프로필 이미지"
+              src={profileImg}
+              className="w-6 rounded-full object-cover"
+            />
+          </Link>
+        )}
       </div>
     </header>
   );
 }
+
+//{/**<span className="absolute top-4 right-5 flex items-center justify-center h-2 w-2 rounded-full bg-red-600 text-white text-xs font-bold"></span>*/}

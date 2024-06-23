@@ -15,10 +15,13 @@ import RecommendPage from "../pages/MainPage/components/RecoForecastForm/pages/R
 // 일단 테스트용으로 임시로 넣은 거: 게시판 세부화면 (상세글보기, 글수정화면)
 import EditContent from "../pages/BoardPage/components/common/EditContent";
 import SeeDetail from "../pages/BoardPage/components/common/SeeDetail";
-import ProfilePage from "../pages/MyPage/temp/ProfilePage";
+//import ProfilePage from "../pages/MyPage/temp/ProfilePage";
+import ProfileRelated from "../pages/MyPage/components/contents/ProfileRelated";
 
 import Login from "../component/Login";
 import Join from "../component/Join";
+import ResignPage from "../pages/MyPage/components/contents/ResignPage";
+import WriteNewPost from "../pages/BoardPage/components/common/item/WriteNewPost";
 
 export default function Main() {
   return (
@@ -35,14 +38,13 @@ export default function Main() {
         <Route path="/state" element={<StatePage />} />
         <Route path="/album" element={<AlbumPage />} />
 
-        {/** 일단 테스트용으로 임시로 넣은 거 */}
+        <Route path="/resign" element={<ResignPage />} />
+
         <Route path="/boarddetail" element={<SeeDetail />} />
-
-        {/** 일단 테스트용으로 임시로 넣은 거 */}
         <Route path="/boardedit" element={<EditContent />} />
+        <Route path="/boardwrite" element={<WriteNewPost />} />
 
-        {/** 일단 테스트용으로 임시로 넣은 거 */}
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/profile" element={<ProfileRelated />} />
 
         {/** 인규님 파트 프엔 통합 */}
         <Route path="/login" element={<Login />} />
