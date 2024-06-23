@@ -129,14 +129,14 @@ export default function EditContent() {
             {/** 나중에 버튼 component 는 따로 분리 */}
             <button
               onClick={handleEditCompleteBtn}
-              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
             >
               Edit Complete
             </button>
             &nbsp;&nbsp;&nbsp; {/** 나중에 수정!!! */}
             <button
               onClick={handleBackToPostsBtn}
-              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
             >
               Back To Posts
             </button>

@@ -7,15 +7,10 @@ export default function CommentList({ postId }) {
   // 댓글 정보 가져오기
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/comments`)
+      .get(`http://localhost:8080/comments/post/${postId}`)
       .then(function (response) {
         // 성공 핸들링
-        console.log("comments", JSON.stringify(Object.keys(response.data)));
-        setCommentInfos(
-          response.data.map((item) => {
-            return { ...item, member: { id: 6 } }; // 테스트용 임시
-          })
-        );
+        setCommentInfos(response.data);
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -24,7 +19,7 @@ export default function CommentList({ postId }) {
       .finally(function () {
         // 항상 실행되는 영역
       });
-  }, []);
+  }, [postId]);
 
   useEffect(() => {
     console.log(commentInfos);
@@ -32,16 +27,9 @@ export default function CommentList({ postId }) {
 
   return (
     <div>
-      {commentInfos.map((commentInfo) => (
-        <Comment commentInfo={commentInfo} key={commentInfo.id} />
+      {commentInfos.map((commentInfo, index) => (
+        <Comment key={index} commentInfo={commentInfo} />
       ))}
-      {/* <Comment />
-      <Comment />
-      <Comment />
-      <Comment />
-      <Comment />
-      <Comment />
-      <Comment /> */}
     </div>
   );
 }

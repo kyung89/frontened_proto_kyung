@@ -31,22 +31,13 @@ export default function Header() {
         <Link to="/state">
           <div className="mx-5 p-2 rounded-md hover:text-white">상태관리</div>
         </Link>
+        <Link to="/album">
+          <div className="mx-5 p-2 rounded-md hover:text-white">앨범</div>
+        </Link>
         <Link to="/mypage">
           <div className="mx-5 p-2 rounded-md hover:text-white">
             마이 페이지
           </div>
-        </Link>
-
-        {/** 일단 테스트용으로 임시로 넣은 거 */}
-        <Link to="/boarddetail">
-          <div className="mx-5 p-2 rounded-md hover:text-white">
-            상세 글보기
-          </div>
-        </Link>
-
-        {/** 일단 테스트용으로 임시로 넣은 거 */}
-        <Link to="/boardedit">
-          <div className="mx-5 p-2 rounded-md hover:text-white">글 수정</div>
         </Link>
 
         {/** 일단 테스트용으로 임시로 넣은 거 */}

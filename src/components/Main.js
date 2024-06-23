@@ -8,6 +8,7 @@ import MyPage from "../pages/MyPage/MyPage";
 import SelectPage from "../pages/SelectPage/SelectPage";
 import SettingsPage from "../pages/SettingsPage/SettingsPage";
 import StatePage from "../pages/StatePage/StatePage";
+import AlbumPage from "../pages/AlbumPage/AlbumPage";
 
 import RecommendPage from "../pages/MainPage/components/RecoForecastForm/pages/RecommendPage";
 
@@ -32,6 +33,7 @@ export default function Main() {
         <Route path="/select" element={<SelectPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/state" element={<StatePage />} />
+        <Route path="/album" element={<AlbumPage />} />
 
         {/** 일단 테스트용으로 임시로 넣은 거 */}
         <Route path="/boarddetail" element={<SeeDetail />} />

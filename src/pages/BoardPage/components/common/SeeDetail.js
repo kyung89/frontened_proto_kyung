@@ -152,28 +152,28 @@ export default function SeeDetail() {
             {/** 나중에 버튼 component 는 따로 분리 */}
             <button
               onClick={handleEditPostBtn}
-              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
             >
               Edit Post
             </button>
             &nbsp;&nbsp;&nbsp; {/** 나중에 수정!!! */}
             <button
               onClick={handleDeleteBtn}
-              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
             >
               Delete Post
             </button>
             &nbsp;&nbsp;&nbsp; {/** 나중에 수정!!! */}
             <button
               onClick={handleBackToPostsBtn}
-              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
             >
               Back To Posts
             </button>
           </div>
 
           <div className="w-full min-h-56 p-6 m-2 bg-white border border-gray-200 rounded-lg shadow">
-            <CommentInput />
+            <CommentInput postId={postId} />
             <div className="grow">
               <CommentList postId={postId} />
             </div>
