@@ -23,6 +23,8 @@ import Join from "../component/Join";
 import ResignPage from "../pages/MyPage/components/contents/ResignPage";
 import WriteNewPost from "../pages/BoardPage/components/common/item/WriteNewPost";
 
+import MainPage_old from "../pages/MainPage/MainPage_old";
+
 export default function Main() {
   return (
     <main className="grow flex flex-col items-center overflow-y-auto m-1">
@@ -49,6 +51,8 @@ export default function Main() {
         {/** 인규님 파트 프엔 통합 */}
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
+
+        <Route path="/testmain" element={<MainPage_old />} />
       </Routes>
     </main>
   );

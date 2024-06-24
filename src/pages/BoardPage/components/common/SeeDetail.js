@@ -177,14 +177,12 @@ export default function SeeDetail() {
             </button>
           </div>
 
-          {countComment > 0 && !login && (
-            <div className="w-full min-h-56 p-6 m-2 bg-white border border-gray-200 rounded-lg shadow">
-              {login && <CommentInput postId={postId} />}
-              <div className="grow">
-                <CommentList postId={postId} />
-              </div>
+          <div className="w-full min-h-56 p-6 m-2 bg-white border border-gray-200 rounded-lg shadow">
+            {login && <CommentInput postId={postId} />}
+            <div className="grow">
+              <CommentList postId={postId} />
             </div>
-          )}
+          </div>
           <div className="h-5"></div>
         </>
       )}

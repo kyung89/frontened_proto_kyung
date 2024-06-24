@@ -79,6 +79,11 @@ export default function Join() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!profileImage) {
+      alert("프로필 이미지를 선택해주세요!");
+      return;
+    }
+
     const formData = new FormData();
     formData.append(
       "memberDto",

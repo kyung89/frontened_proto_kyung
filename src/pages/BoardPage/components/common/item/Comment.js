@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import axios from "axios";
@@ -8,12 +8,31 @@ export default function Comment({ commentInfo }) {
   const [editMode, setEditMode] = useState(false);
   const [comment, setComment] = useState(commentInfo.comment);
   const commentSave = commentInfo.comment;
+  const [login, setLogin] = useState(false);
   // 버그가 있는지 좀더 테스트해봐야 함
   // 댓글을 정렬해서 보내준다면 댓글 내용이 바뀌는 버그가 없어질 것이라 예상됨
   // 댓글들을 불러올 때마다 순서가 바뀌고 있음.
 
+  useEffect(() => {
+    const userData1 = JSON.parse(localStorage.getItem("userData"));
+    if (userData1) setLogin(true);
+  }, []);
+
+  //check user
+  const checkUserSame = () => {
+    const userData1 = JSON.parse(localStorage.getItem("userData"));
+    const username = userData1.username;
+
+    if (commentInfo.member === username) return true;
+    else return false;
+  };
+
   // 댓글 수정창 활성화
   const setEditModeTrue = () => {
+    if (!checkUserSame()) {
+      alert("댓글 작성자만이 해당 댓글을 수정할 수 있습니다.");
+      return;
+    }
     setEditMode(true);
   };
 
@@ -42,6 +61,11 @@ export default function Comment({ commentInfo }) {
 
   // 댓글 삭제 기능
   const deleteComment = async () => {
+    if (!checkUserSame()) {
+      alert("댓글 작성자만이 해당 댓글을 삭제할 수 있습니다.");
+      return;
+    }
+
     // 테스트를 위해 임의로 comment Id
     const commentId = 16;
 
@@ -92,7 +116,7 @@ export default function Comment({ commentInfo }) {
           </>
         )}
       </div>
-      {!editMode && (
+      {!editMode && login && (
         <div className="">
           <div className="mb-2">
             <FaRegEdit

@@ -1,84 +1,54 @@
 import React from "react";
-import IntroduceForm from "./components/IntroduceForm/IntroduceForm";
-import RecoForecastForm from "./components/RecoForecastForm/RecoForecastForm";
-import ExperienceForm from "./components/ExperienceForm/ExperienceForm";
-import PublicForm from "./components/PublicForm/PublicForm";
-import NoticeForm from "./components/NoticeForm/NoticeForm";
-import FreeBoardForm from "./components/FreeBoardForm/FreeBoardForm";
-import BoardForm from "./components/BoardForm/BoardForm";
-import PhotoForm from "./components/PhotoForm/PhotoForm";
-import ShopForm from "./components/ShopForm/ShopForm";
-import CalendarForm from "./components/CalendarForm/CalendarForm";
-import StreamingForm from "./components/StreamingForm/StreamingForm";
-import ValueForm from "./components/ValueForm/ValueForm";
 
-// 일단 왕훈님 디자인대로 구현하기: 의논해서 디자인을 확정지어야 함!
+// 폰트 변경
 
 export default function MainPage() {
-  return (
-    <>
-      <div className="w-full flex flex-col items-center pt-5">
-        <section className="w-full h-80">
-          {/* 사진 넘어가면서 뭔 가치를 만드는 어쩌고 그런 문구 / 우리프로그램을 한눈에 가시적으로 / cj 홈페이지 최상단 */}
-          <IntroduceForm />
-        </section>
+  const textStyle = {
+    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
+  };
 
-        <section className="w-full h-32 flex flex-row m-5">
-          <section className="w-1/2">
-            {/* 이달의 추천작물 -> 추천요리: 들어가면 간단레시피/추천 작물 사진 시각화  */}
-            {/* 간단한 날씨정보  */}
-            <RecoForecastForm />
-          </section>
-          <section className="border border-black w-1/4">
-            {/* 체험 서비스 신청(비회원, 회원) /예약 / 예약을 위해서 날짜를 선택하는 드롭다운 달력창 구현(색깔로간단하게 예악 가/불가 날짜 확인 */}
-            <ExperienceForm />
-          </section>
-          <section className="border border-black w-1/4">
-            {/* 작물 정보 바로가기? / 농가정보? /등등 퍼블릭 서비스 구현 (가장 위에) */}
-            <PublicForm />
-          </section>
-        </section>
-        <section className=" w-full flex flex-row mb-5">
-          <section className="w-1/2">
-            <section className="border border-gray-500 h-16 mb-1">
-              {/* 공지사항 */}
-              <NoticeForm />
-            </section>
-            <section className="border border-gray-500 h-16 mb-1">
-              {/* 자유게시판 */}
-              <FreeBoardForm />
-            </section>
-            <section className="border border-gray-500 h-16">
-              {/* 자주묻는질문/QnA/서비스들 전반적인 세부정보? */}
-              <BoardForm />
-            </section>
-          </section>
-          <section className="w-1/2 flex flex-row">
-            <section className="border border-black w-1/2">
-              {/* 자랑하기/체험하기 등 사진 게시판 */}
-              <PhotoForm />
-            </section>
-            <section className="border border-black w-1/2">
-              {/* 당근마켓 */}
-              <ShopForm />
-            </section>
-          </section>
-        </section>
-        <section className="w-full flex flex-row h-[285px] mb-5">
-          <section className="w-1/2">
-            {/* 달력 */}
-            <CalendarForm />
-          </section>
-          <section className="border border-black w-1/2 h-[17.6rem]">
-            {/* 스트리밍 및 앨범 예정 */}
-            <StreamingForm />
-          </section>
-        </section>
-        <section className="w-full h-fit mb-5">
-          {/* 풀무원 홈페이지 회사소개 및 가치 참조 */}
-          <ValueForm />
-        </section>
+  return (
+    <div className="bg-cover bg-center bg-no-repeat w-[99.6%] h-screen flex flex-col items-center  relative">
+      <video
+        src="/video/farm.mp4"
+        autoPlay
+        loop
+        muted
+        className="object-cover w-full h-full absolute inset-0 z-0"
+      />
+      <div className="text-white text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold z-10 mb-5 absolute mt-52 text-shadow">
+        My Farm
       </div>
-    </>
+      <p className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl font-dela z-10">
+        {/**What are you waiting for?*/}
+      </p>
+
+      <div className="z-10 flex flex-row absolute bottom-10">
+        <div className="p-5 z-10 border-8 border-white text-white w-96 h-48 rounded-3xl m-10 shadow-[rgba(0,0,0,0.5)_2px_2px_2px_2px]">
+          <p className="text-2xl font-bold">실시간 동영상 스트리밍</p>
+          <p className="mt-5">
+            스트리밍을 통해 직접 작물을 키우는 느낌을 받을 수 있습니다.
+          </p>
+        </div>
+        <div className="p-5 z-10 border-8 border-white text-white w-96 h-48 rounded-3xl m-10 shadow-[rgba(0,0,2,0.5)_2px_2px_2px_2px]">
+          <p className="text-2xl font-bold">작물 재배 체험 서비스</p>
+          <p className="mt-5">
+            체험 서비스 신청을 통해 작물을 재배하는 체험이 가능합니다.
+          </p>
+        </div>
+        <div className="p-5 z-10 border-8 border-white text-white w-96 h-48 rounded-3xl m-10 shadow-[rgba(0,0,2,0.5)_2px_2px_2px_2px]">
+          <p className="text-2xl font-bold">힐링 팜 커뮤니티 서비스</p>
+          <p className="mt-5">
+            내 힐링 팜 작물을 자랑하고 상태를 공유할 수 있습니다.
+          </p>
+        </div>
+        <div className="p-5 z-10 border-8 border-white text-white w-96 h-48 rounded-3xl m-10 shadow-[rgba(0,0,2,0.5)_2px_2px_2px_2px]">
+          <p className="text-2xl font-bold">작물 상태 알람 서비스</p>
+          <p className="mt-5">
+            작물의 생육상태와 병충해 상태를 알림으로 받을 수 있습니다.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
