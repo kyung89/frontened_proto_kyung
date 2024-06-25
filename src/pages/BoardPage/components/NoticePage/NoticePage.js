@@ -22,7 +22,6 @@ export default function NoticePage() {
       .then(function (response) {
         // 성공 핸들링
         setPosts(response.data);
-        //console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
         // 에러 핸들링

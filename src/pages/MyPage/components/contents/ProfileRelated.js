@@ -42,7 +42,7 @@ export default function ProfileRelated() {
 
   // 회원정보 수정
   const EditProfile = async () => {
-    // 일단 비밀번호와 role 과 profileImg 는 빼고 구현해본다.
+    // 일단 profileImg 는 빼고 구현해본다.
 
     const formData = {
       name,
@@ -60,7 +60,7 @@ export default function ProfileRelated() {
       })
       .then(function (response) {
         // 성공 핸들링
-        alert("회원정보 수정이 완료되었습니다. ");
+        alert("회원정보 수정이 완료되었습니다. 다시 로그인해주세요.");
 
         //로그아웃 처리
         const complete = handleLogout();
@@ -191,7 +191,6 @@ export default function ProfileRelated() {
               onChange={(e) => setAddress(e.target.value)}
             />
           </div>
-
           <button
             onClick={EditProfile}
             className="mt-5 text-white bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 px-5 w-full sm:w-auto"
@@ -200,6 +199,10 @@ export default function ProfileRelated() {
           </button>
           <div className="mt-5 text-red-500 underline">
             <Link to="/resign">탈퇴를 원하십니까?</Link>
+          </div>
+
+          <div className="mt-5 text-red-500 underline">
+            <Link to="/pwdedit">비밀번호 수정을 원하십니까?</Link>
           </div>
         </div>
       </div>

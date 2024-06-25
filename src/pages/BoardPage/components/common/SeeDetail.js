@@ -27,8 +27,6 @@ export default function SeeDetail() {
       .then(function (response) {
         // 성공 핸들링
         setPost(response.data);
-
-        //console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -47,7 +45,6 @@ export default function SeeDetail() {
       .then(function (response) {
         // 성공 핸들링
         setCountComment(response.data.length);
-        console.log("count", response.data.length);
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -86,7 +83,6 @@ export default function SeeDetail() {
           "글을 삭제하시겠습니까? 삭제가 완료되면 게시글 목록으로 이동합니다."
         )
       ) {
-        console.log("삭제!");
 
         const token = localStorage.getItem("token");
         const delComplete = await axios.delete(

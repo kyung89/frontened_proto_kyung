@@ -10,7 +10,14 @@ export default function CommentList({ postId }) {
       .get(`http://localhost:8080/comments/post/${postId}`)
       .then(function (response) {
         // 성공 핸들링
-        setCommentInfos(response.data);
+
+        let data = response.data;
+
+        data.sort(function(a, b) {
+          return b.id - a.id;
+        });
+
+        setCommentInfos(data);
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -20,10 +27,6 @@ export default function CommentList({ postId }) {
         // 항상 실행되는 영역
       });
   }, [postId]);
-
-  useEffect(() => {
-    console.log(commentInfos);
-  }, [commentInfos]);
 
   return (
     <div>

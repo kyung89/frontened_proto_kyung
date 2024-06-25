@@ -45,8 +45,8 @@ export default function Comment({ commentInfo }) {
   // 댓글 수정하기
   const editComment = async () => {
     if (window.confirm("해당 댓글을 수정하시겠습니까?")) {
-      // 테스트를 위해 임의로 comment Id
-      const commentId = 15;
+      
+      const commentId = commentInfo.id;
 
       const token = localStorage.getItem("token");
       await axios.put(`http://localhost:8080/comment/${commentId}`, comment, {
@@ -66,8 +66,7 @@ export default function Comment({ commentInfo }) {
       return;
     }
 
-    // 테스트를 위해 임의로 comment Id
-    const commentId = 16;
+    const commentId = commentInfo.id;
 
     if (window.confirm("해당 댓글을 삭제하시겠습니까?")) {
       const token = localStorage.getItem("token");

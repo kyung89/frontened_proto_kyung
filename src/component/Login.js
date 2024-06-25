@@ -57,14 +57,24 @@ export default function Login() {
             Authorization: `Bearer ${token}`,
           },
         }
-      );
+      ).then(function (response) {
+        // 성공 핸들링
+        localStorage.setItem("userData", JSON.stringify(response.data));
+        // Recoil 관리 값들
+        setIsLoginCheck(true); // 사용자 정보를 가져와야만 비로소 진짜 로그인으로 처리
+        setUserData(response.data);
+      })
+      .catch(function (error) {
+        // 에러 핸들링
+        console.log(error);
+      })
+      .finally(function () {
+        // 항상 실행되는 영역
+        
+      });
 
       // localStorage의 token 값은 LoginCp에서 setItem 해주고 있음
-      localStorage.setItem("userData", JSON.stringify(userInfoResponse.data));
-
-      // Recoil 관리 값들
-      setIsLoginCheck(true); // 사용자 정보를 가져와야만 비로소 진짜 로그인으로 처리
-      setUserData(userInfoResponse.data);
+      //localStorage.setItem("userData", JSON.stringify(userInfoResponse.data));
     } catch (error) {
       console.error("사용자 정보를 가져오는 중 오류 발생:", error);
     }

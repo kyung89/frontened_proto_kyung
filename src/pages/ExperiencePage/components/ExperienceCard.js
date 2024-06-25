@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ExperienceCard() {
   return (
-    <div className="p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 flex flex-row">
+    <div className="w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 flex flex-row">
       <div className="p-2 w-1/2">
         <table>
           <tbody>

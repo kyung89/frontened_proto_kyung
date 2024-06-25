@@ -28,7 +28,6 @@ export default function EditContent() {
       .then(function (response) {
         // 성공 핸들링
         setPost(response.data);
-        //console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
         // 에러 핸들링
@@ -53,7 +52,6 @@ export default function EditContent() {
         "글을 수정하시겠습니까? 수정이 완료되면 수정사항이 적용된 글 상세보기로 이동합니다."
       )
     ) {
-      console.log("수정!");
 
       const token = localStorage.getItem("token");
       const editComplete = await axios.put(
