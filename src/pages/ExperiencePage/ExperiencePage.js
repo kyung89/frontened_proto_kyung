@@ -21,12 +21,12 @@ export default function ExperiencePage() {
 
     if(select === "1") {
       //경상북도 경주시_농촌교육장 체험마을 정보 
-      console.log("경상북도 경주시_농촌교육장 체험마을 정보 ");
+      //console.log("경상북도 경주시_농촌교육장 체험마을 정보 ");
       setLoading(true);
       getData1();
     } else if(select === "2") {
       //충청남도 보령시_농업농촌체험정보조회서비스
-      console.log("충청남도 보령시_농업농촌체험정보조회서비스");
+      //console.log("충청남도 보령시_농업농촌체험정보조회서비스");
       setLoading(true);
       getData2();
     } else {
@@ -41,13 +41,13 @@ export default function ExperiencePage() {
     url += `&pageNo=1`;
     url += `&numOfRows=10`;
 
-    console.log(url);
+    //console.log(url);
 
     axios.get(url)
     .then(function (response) {
       // 성공 핸들링
-      console.log("체험학습 데이터 불러오기: 경상");
-      console.log(response.data.response.body.items.item);
+      //console.log("체험학습 데이터 불러오기: 경상");
+      //console.log(response.data.response.body.items.item);
 
       setItems(response.data.response.body.items.item);
     })
@@ -74,8 +74,8 @@ export default function ExperiencePage() {
     axios.get(url)
     .then(function (response) {
       // 성공 핸들링
-      console.log("체험학습 데이터 불러오기: 충청");
-      console.log(response.data.response.body.items.item);
+      //console.log("체험학습 데이터 불러오기: 충청");
+      //console.log(response.data.response.body.items.item);
 
       setItems(response.data.response.body.items.item);
     })
