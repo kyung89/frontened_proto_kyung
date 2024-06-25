@@ -44,6 +44,21 @@ export default function LoginForm({ handleLogin }) {
         const token = response.headers["authorization"]; // 응답 헤더에서 토큰 추출
         const username = response.headers["username"];
 
+        console.log("response", response);
+
+        const getCookieValue = (name) => {
+          const cookies = document.cookie.split(";");
+          for (let cookie of cookies) {
+            const [cookieName, cookieValue] = cookie.trim().split("=");
+            if (cookieName === name) {
+              return cookieValue;
+            }
+          }
+          return null;
+        };
+
+        console.log("cookie", getCookieValue());
+
         if (!token) {
           throw new Error("토큰이 없습니다.");
         }

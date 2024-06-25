@@ -24,6 +24,7 @@ import ResignPage from "../pages/MyPage/components/contents/ResignPage";
 import WriteNewPost from "../pages/BoardPage/components/common/item/WriteNewPost";
 
 import MainPage_old from "../pages/MainPage/MainPage_old";
+import PwdEdit from "../pages/MyPage/components/contents/PwdEdit";
 
 export default function Main() {
   return (
@@ -47,6 +48,7 @@ export default function Main() {
         <Route path="/boardwrite" element={<WriteNewPost />} />
 
         <Route path="/profile" element={<ProfileRelated />} />
+        <Route path="/pwdedit" element={<PwdEdit />} />
 
         {/** 인규님 파트 프엔 통합 */}
         <Route path="/login" element={<Login />} />

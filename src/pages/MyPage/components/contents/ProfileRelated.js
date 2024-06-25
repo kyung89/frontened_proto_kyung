@@ -45,13 +45,10 @@ export default function ProfileRelated() {
     // 일단 비밀번호와 role 과 profileImg 는 빼고 구현해본다.
 
     const formData = {
-      memberDto: {
-        username,
-        name,
-        email,
-        phone,
-        address,
-      },
+      name,
+      email,
+      phone,
+      address,
     };
 
     const token = localStorage.getItem("token");
@@ -99,8 +96,8 @@ export default function ProfileRelated() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="w-11/12 max-w-lg px-10 py-8 mx-auto bg-white border rounded-lg shadow-2xl">
+    <div className="flex items-center justify-center min-h-screen w-full">
+      <div className="w-full max-w-lg px-10 py-8 mx-auto bg-white border rounded-lg shadow-2xl">
         <div className="max-w-md mx-auto space-y-4">
           <h2 className="text-2xl font-bold pb-5">회원 정보 수정</h2>
           <div className="mb-4">
@@ -194,48 +191,7 @@ export default function ProfileRelated() {
               onChange={(e) => setAddress(e.target.value)}
             />
           </div>
-          <div className="mb-4">
-            <label className="block mb-2 text-sm font-medium">ROLE</label>
-            <div className="flex items-center">
-              <input
-                type="radio"
-                id="ROLE_CUSTOMER"
-                name="role"
-                value="ROLE_CUSTOMER"
-                checked={role === "ROLE_CUSTOMER"}
-                onChange={(e) => setRole(e.target.value)}
-                className="mr-2"
-              />
-              <label htmlFor="ROLE_CUSTOMER" className="mr-4 text-sm">
-                CUSTOMER
-              </label>
-              <input
-                type="radio"
-                id="ROLE_FARMER"
-                name="role"
-                value="ROLE_FARMER"
-                checked={role === "ROLE_FARMER"}
-                onChange={(e) => setRole(e.target.value)}
-                className="mr-2"
-              />
-              <label htmlFor="ROLE_FARMER" className="text-sm">
-                FARMER
-              </label>
-            </div>
-          </div>
-          <label
-            htmlFor="profileImage"
-            className="block mb-2 text-sm font-medium"
-          >
-            프로필 사진 설정
-          </label>
-          <input
-            type="file"
-            id="profileImage"
-            accept="image/png, image/jpeg, image/jpg"
-            className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 hover:ring-green-500 hover:border-green-500 w-full py-2.5 px-4"
-            onChange={handleFileChange}
-          />
+
           <button
             onClick={EditProfile}
             className="mt-5 text-white bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 px-5 w-full sm:w-auto"
