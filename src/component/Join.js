@@ -79,10 +79,6 @@ export default function Join() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!profileImage) {
-      alert("프로필 이미지를 선택해주세요!");
-      return;
-    }
 
     const formData = new FormData();
     formData.append(
@@ -106,6 +102,9 @@ export default function Join() {
     if (profileImage) {
       const blob = new Blob([profileImage], { type: profileImage.type });
       formData.append("profileImage", blob, profileImage.name);
+    } else {
+      const blob = new Blob();
+      formData.append("profileImage", blob, "temp");
     }
     // console.log('FormData contents:');
     // for (let pair of formData.entries()) {

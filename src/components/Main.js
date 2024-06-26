@@ -20,7 +20,6 @@ import ProfileRelated from "../pages/MyPage/components/contents/ProfileRelated";
 
 import Login from "../component/Login";
 import Join from "../component/Join";
-import ResignPage from "../pages/MyPage/components/contents/ResignPage";
 import WriteNewPost from "../pages/BoardPage/components/common/item/WriteNewPost";
 
 import MainPage_old from "../pages/MainPage/MainPage_old";
@@ -40,8 +39,6 @@ export default function Main() {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/state" element={<StatePage />} />
         <Route path="/album" element={<AlbumPage />} />
-
-        <Route path="/resign" element={<ResignPage />} />
 
         <Route path="/boarddetail" element={<SeeDetail />} />
         <Route path="/boardedit" element={<EditContent />} />

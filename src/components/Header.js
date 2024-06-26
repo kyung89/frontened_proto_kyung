@@ -23,11 +23,14 @@ export default function Header() {
 
     if (userData1) {
       setLogin(true);
-      const base64String = `data:image/jpeg;base64,${userData1.profileImage}`;
-      setProfileImg(base64String);
-    } else {
-      setProfileImg("./image/blankProfile.png");
-    }
+
+      if(userData1.profileImage) {
+        const base64String = `data:image/jpeg;base64,${userData1.profileImage}`;
+        setProfileImg(base64String);
+      } else {
+        setProfileImg("./image/blankProfile.png");
+      }
+    } 
   }, [isLoginCheck]);
 
   const handleLogout = () => {
@@ -56,48 +59,48 @@ export default function Header() {
         <Link to="/board">
           <div className="mx-5 p-2 rounded-md hover:text-white">게시판</div>
         </Link>
-        {login && (
+        {(login && isLoginCheck) && (
           <Link to="/experience">
             <div className="mx-5 p-2 rounded-md hover:text-white">
               체험서비스
             </div>
           </Link>
         )}
-        {login && (
+        {(login && isLoginCheck) && (
           <Link to="/select">
             <div className="mx-5 p-2 rounded-md hover:text-white">작물선택</div>
           </Link>
         )}
-        {login && (
+        {(login && isLoginCheck) && (
           <Link to="/settings">
             <div className="mx-5 p-2 rounded-md hover:text-white">설정</div>
           </Link>
         )}
-        {login && (
+        {(login && isLoginCheck) && (
           <Link to="/state">
-            <div className="mx-5 p-2 rounded-md hover:text-white">상태관리</div>
+            <div className="mx-5 p-2 rounded-md hover:text-white">스트리밍</div>
           </Link>
         )}
-        {login && (
+        {(login && isLoginCheck) && (
           <Link to="/album">
             <div className="mx-5 p-2 rounded-md hover:text-white">앨범</div>
           </Link>
         )}
-        {login && (
+        {/**{login && (
           <Link to="/mypage">
             <div className="mx-5 p-2 rounded-md hover:text-white">
               마이 페이지
             </div>
           </Link>
-        )}
+        )}*/}
 
-        {login && (
+        {(login && isLoginCheck) && (
           <Link to="/profile">
             <div className="mx-5 p-2 rounded-md hover:text-white">프로필</div>
           </Link>
         )}
 
-        {login && (
+        {(login && isLoginCheck) && (
           <Link to="/alarm">
             <div className="mx-5 p-2 rounded-md hover:text-white mr-6">
               알람
@@ -110,13 +113,13 @@ export default function Header() {
           <div className="mx-5 p-2 rounded-md hover:text-white">회원가입</div>
         </Link>
 
-        {!login && (
+        {!((login && isLoginCheck)) && (
           <Link to="/login">
             <div className="mx-5 p-2 rounded-md hover:text-white">로그인</div>
           </Link>
         )}
 
-        {login && (
+        {(login && isLoginCheck) && (
           <div
             className="mx-5 p-2 rounded-md hover:text-white"
             onClick={handleLogout}
@@ -125,7 +128,7 @@ export default function Header() {
           </div>
         )}
 
-        {login && (
+        {(login && isLoginCheck) && (
           <Link to="/profile">
             <img
               alt="프로필 이미지"

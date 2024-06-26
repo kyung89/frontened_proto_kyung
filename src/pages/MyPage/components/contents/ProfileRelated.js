@@ -95,6 +95,35 @@ export default function ProfileRelated() {
     setProfileImg(file);
   };
 
+  const deleteMyId = () => {
+    if(window.confirm("탈퇴하시겠습니까?")) {
+      const token = localStorage.getItem("token");
+      axios
+      .delete("http://localhost:8080/user/deleteUser", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(function (response) {
+        // 성공 핸들링
+        alert("탈퇴 처리되었습니다. 다시 로그인해주세요.");
+
+        //로그아웃 처리
+        const complete = handleLogout();
+        if (complete) navigator("/login");
+      })
+      .catch(function (error) {
+        // 에러 핸들링
+        console.log(error);
+
+        alert("탈퇴 처리가 실패하였습니다. ");
+      })
+      .finally(function () {
+        // 항상 실행되는 영역
+      });
+    }
+  }
+
   return (
     <div className="flex items-center justify-center min-h-screen w-full">
       <div className="w-full max-w-lg px-10 py-8 mx-auto bg-white border rounded-lg shadow-2xl">
@@ -197,11 +226,11 @@ export default function ProfileRelated() {
           >
             Submit
           </button>
-          <div className="mt-5 text-red-500 underline">
-            <Link to="/resign">탈퇴를 원하십니까?</Link>
+          <div className="mt-5 text-red-500 underline cursor-pointer hover:text-green-900" onClick={deleteMyId}>
+            탈퇴를 원하십니까?
           </div>
 
-          <div className="mt-5 text-red-500 underline">
+          <div className="mt-5 text-red-500 underline hover:text-green-900">
             <Link to="/pwdedit">비밀번호 수정을 원하십니까?</Link>
           </div>
         </div>
