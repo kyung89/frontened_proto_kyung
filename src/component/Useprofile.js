@@ -1,13 +1,19 @@
 import React from 'react';
 
 const Useprofile = ({ userdata }) => {
-    if (!userdata || !userdata.profileImage) {
+    if (!userdata) {
         return null;
     }
 
     const { profileImage } = userdata;
-    const base64String = `data:image/jpeg;base64,${profileImage}`;
-
+    
+    let base64String;
+    if(userdata.profileImage) {
+        base64String = `data:image/jpeg;base64,${profileImage}`;
+    } else {
+        base64String = "./image/blankProfile.png"
+    }
+    
     return (
         <img
             src={base64String}
