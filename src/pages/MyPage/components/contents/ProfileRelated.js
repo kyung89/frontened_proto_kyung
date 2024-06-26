@@ -111,6 +111,7 @@ export default function ProfileRelated() {
         //로그아웃 처리
         const complete = handleLogout();
         if (complete) navigator("/login");
+        window.location.reload();
       })
       .catch(function (error) {
         // 에러 핸들링
