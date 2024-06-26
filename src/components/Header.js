@@ -121,7 +121,7 @@ export default function Header() {
 
         {(login && isLoginCheck) && (
           <div
-            className="mx-5 p-2 rounded-md hover:text-white"
+            className="mx-5 p-2 rounded-md hover:text-white cursor-pointer"
             onClick={handleLogout}
           >
             로그아웃
@@ -129,13 +129,11 @@ export default function Header() {
         )}
 
         {(login && isLoginCheck) && (
-          <Link to="/profile">
             <img
               alt="프로필 이미지"
               src={profileImg}
               className="w-6 rounded-full object-cover"
             />
-          </Link>
         )}
       </div>
     </header>
