@@ -79,7 +79,6 @@ export default function Join() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
     const formData = new FormData();
     formData.append(
       "memberDto",
@@ -160,7 +159,7 @@ export default function Join() {
 
           {/* 첫 번째 단계 */}
           {step === 1 && (
-            <form onSubmit={handleStep1Submit} enctype="multipart/form-data">
+            <form onSubmit={handleStep1Submit} encType="multipart/form-data">
               <div className="mb-4">
                 <label
                   htmlFor="username"

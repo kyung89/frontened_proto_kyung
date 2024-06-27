@@ -24,13 +24,13 @@ export default function Header() {
     if (userData1) {
       setLogin(true);
 
-      if(userData1.profileImage) {
+      if (userData1.profileImage) {
         const base64String = `data:image/jpeg;base64,${userData1.profileImage}`;
         setProfileImg(base64String);
       } else {
         setProfileImg("./image/blankProfile.png");
       }
-    } 
+    }
   }, [isLoginCheck]);
 
   const handleLogout = () => {
@@ -95,12 +95,6 @@ export default function Header() {
         )}*/}
 
         {(login || isLoginCheck) && (
-          <Link to="/profile">
-            <div className="mx-5 p-2 rounded-md hover:text-white">프로필</div>
-          </Link>
-        )}
-
-        {(login || isLoginCheck) && (
           <Link to="/alarm">
             <div className="mx-5 p-2 rounded-md hover:text-white mr-6">
               알람
@@ -109,11 +103,17 @@ export default function Header() {
           </Link>
         )}
 
+        {(login || isLoginCheck) && (
+          <Link to="/profile">
+            <div className="mx-5 p-2 rounded-md hover:text-white">프로필</div>
+          </Link>
+        )}
+
         <Link to="/join">
           <div className="mx-5 p-2 rounded-md hover:text-white">회원가입</div>
         </Link>
 
-        {!((login || isLoginCheck)) && (
+        {!(login || isLoginCheck) && (
           <Link to="/login">
             <div className="mx-5 p-2 rounded-md hover:text-white">로그인</div>
           </Link>
@@ -129,11 +129,11 @@ export default function Header() {
         )}
 
         {(login || isLoginCheck) && (
-            <img
-              alt="프로필 이미지"
-              src={profileImg}
-              className="w-6 rounded-full object-cover"
-            />
+          <img
+            alt="프로필 이미지"
+            src={profileImg}
+            className="w-6 rounded-full object-cover"
+          />
         )}
       </div>
     </header>
