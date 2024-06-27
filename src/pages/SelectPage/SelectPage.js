@@ -76,7 +76,7 @@ export default function SelectPage() {
     </div>
       </div>
       <div className="p-10 grid grid-cols-2 gap-2">
-        {farms.map((farm) => (<SelectCard farm={farm} />))}
+        {farms.map((farm) => (<SelectCard key={farm.id} farm={farm} />))}
       </div>
     </div>
   );

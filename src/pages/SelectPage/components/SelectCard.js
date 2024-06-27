@@ -1,12 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // {id: 3, name: '베베농가', address: '서울', crops: Array(4)}
 
 export default function SelectCard({farm}) {
 
+  const [btnActivated, setBtnActivated] = useState(false);
+
+  const setCropToStreaming = () => {
+    setBtnActivated(!btnActivated);
+  }
+
 
   return (
-    <div className="p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 flex flex-row">
+    <div className="p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 flex flex-col">
       <div className="p-2 w-full">
         <table className="w-full">
           <tbody>
@@ -25,13 +31,14 @@ export default function SelectCard({farm}) {
           </tbody>
         </table>
       </div>
-      {/**<div className="p-2 w-1/2 flex items-center justify-end">
-        <img
-          src="image/berry.jpg"
-          alt=""
-          className="h-24 float-right rounded"
-        />
-      </div>*/}
+      <div className="p-2 flex justify-end">
+        <button
+          onClick={setCropToStreaming}
+          className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-green-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-green-900"
+        >
+          스트리밍 서비스 신청
+        </button>
+      </div>
     </div>
   );
 }
