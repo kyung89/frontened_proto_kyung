@@ -100,9 +100,9 @@ export default function ExperiencePage() {
               <td className="w-32 border border-gray-200">지역</td>
               <td>
                 <select className="w-96" onChange={handleChangeSelect} value={select}>
-                  <option value={0} className="text-center">------</option>
-                  <option value={1}>경상북도 경주시_농촌교육장 체험마을 정보</option>
-                  <option value={2}>충청남도 보령시_농업농촌체험정보조회서비스</option>
+                  <option key={0} value={0} className="text-center">------</option>
+                  <option key={1} value={1}>경상북도 경주시_농촌교육장 체험마을 정보</option>
+                  <option key={2} value={2}>충청남도 보령시_농업농촌체험정보조회서비스</option>
                 </select>
               </td>
             </tr>
