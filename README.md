@@ -1,73 +1,25 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-push 테스트2
+# 제 9회 농림축산식품부 공공데이터 활용 창업경진대회
+* 공모 구분 : 아이디어 기획(공공데이터) ~~제품 및 서비스 개발 부문 작품 공모~~
+* 공모 내용 : 식품 분야 생산, 유통, 소비 관련 국민편익 제고 및 부가가치 창출을 위한 web 및 app 서비스
+* 대회 기간
+    * ~ 7.1 : 제출 마감
+    * ~ 7.9 : 서류 심사
+    * 7.29 ~ 7.30 발표 심사
+## 팀 구성
+* 앱 화면 목업 디자인 : 이왕훈, 정주애
+* 기획 구체화 및 세부 작성 : 고진혁, 옥경림, 최인규
+## 프로젝트 개요
+* AI를 활용한 힐링 및 감성 서비스로, 사용자가 교환일기를 작성하면 다음 접속 시 AI가 답글을 제공하여 소통의 느낌을 줍니다. 또한, 스트리밍 시청 중 채팅 기능을 통해 마치 화훼작물과 대화하는 듯한 경험을 선사합니다.
+* 첫 사용 시에는 사용자의 선호도를 기반으로 적절한 화훼작물을 추천해 주며, 추천 작물 이외에 사용자가 원하는 작물을 선택할 수도 있습니다. 앨범 기능도 지원하여, 하루에 한 컷씩 사진을 찍어 저장하고, 화훼가 다 자랐을 때 재배 전까지의 사진을 모아 GIF 형식의 이미지 파일로 만들어 줍니다. 이를 통해 사용자는 자신의 화훼 성장 과정을 한눈에 볼 수 있습니다.
+* 또한 선택한 화훼작물이 다 자라 재배하게 되면 드라이플라워, 꽃다발, 꽃바구니 등 서비스 이용자가 원하는 형태로 배송해 줍니다. 사용자가 본인이 받지 않고 가족, 연인, 친구에게 선물하고자 할 경우, 직접 쓴 편지 혹은 템플릿을 제공해 완성된 편지를 포함하여 배송해 줍니다.
+## ~~팀 구성(제품 및 서비스 개발 부문 작품 공모)~~
+* Back-end : 고진혁, 이왕훈
+* Front-end : 옥경림
+* Machine-Learning : 최인규
+## ~~프로젝트 개요(제품 및 서비스 개발 부문 작품 공모)~~
+* 직접 재배하지 않아도 농가의 재배지 일부 구역을 이용자의 구역으로 형성하여 원하는 작물을 대리 재배 및 실시간 스트리밍 기능 제공
+* 작물의 성장 과정을 png, gif 형식으로 앨범 기능 제공
+* 특정 시기(개화, 수확 등)마다 사진을 포함한 알람 기능 제공
+* 커뮤니티를 통한 작물의 성장 과정 공유 및 재배 후 작물을 교환하거나 공유할 수 있는 기능 제공
+* 단순 시각적 서비스뿐만 아닌 농가를 방문하여 체험해 볼 수 있는 경험 제공
+* 실시간 작물의 병충해 및 성장 상태분석(농가 한정 제공)
